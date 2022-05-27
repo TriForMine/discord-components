@@ -1,6 +1,7 @@
 import { FunctionalComponent, h } from '@stencil/core';
 import Fragment from '../../Fragment';
 import VerifiedTick from '../svgs/verified-tick';
+import Image from 'next/image';
 
 interface AuthorInfoProps {
 	/**
@@ -48,7 +49,7 @@ export const AuthorInfo: FunctionalComponent<AuthorInfoProps> = ({ author, bot, 
 				<span class="discord-author-username" style={{ color: roleColor }}>
 					{author}
 				</span>
-				{roleIcon && <img class="discord-author-role-icon" src={roleIcon} height="20" width="20" alt={roleName} draggable={false} />}
+				{roleIcon && <Image className="discord-author-role-icon" src={roleIcon} height="20" width="20" alt={roleName} draggable={false} />}
 			</Fragment>
 		)}
 		{

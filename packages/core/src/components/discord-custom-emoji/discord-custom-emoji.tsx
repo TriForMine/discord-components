@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, h, Prop } from '@stencil/core';
 import { getGlobalEmojiUrl } from '../../util';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-custom-emoji',
@@ -49,7 +50,7 @@ export class DiscordCustomEmoji implements ComponentInterface {
 
 		return (
 			<span class={emojiClassName}>
-				<img aria-label={name} src={this.url} alt={name} draggable={false} class={emojiImageClassName} />
+				<Image aria-label={name} src={this.url} alt={name} draggable={false} className={emojiImageClassName} />
 			</span>
 		);
 	}

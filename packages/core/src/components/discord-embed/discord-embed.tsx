@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Fragment from '../../Fragment';
 import type { Emoji } from '../../options';
 import { getGlobalEmojiUrl } from '../../util';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-embed',
@@ -116,7 +117,7 @@ export class DiscordEmbed implements ComponentInterface {
 							)}
 							{emojiParsedAuthorName && (
 								<div class="discord-embed-author">
-									{this.authorImage ? <img src={this.authorImage} alt="" class="discord-author-image" /> : ''}
+									{this.authorImage ? <Image src={this.authorImage} alt="" className="discord-author-image" /> : ''}
 									{this.authorUrl ? (
 										<a href={this.authorUrl} target="_blank" rel="noopener noreferrer">
 											{...emojiParsedAuthorName}
@@ -147,7 +148,7 @@ export class DiscordEmbed implements ComponentInterface {
 								</div>
 							) : null}
 
-							{this.thumbnail ? <img src={this.thumbnail} alt="" class="discord-embed-thumbnail" /> : ''}
+							{this.thumbnail ? <Image src={this.thumbnail} alt="" className="discord-embed-thumbnail" /> : ''}
 							<slot name="footer"></slot>
 						</div>
 					</div>
@@ -160,11 +161,11 @@ export class DiscordEmbed implements ComponentInterface {
 		if (this.video) {
 			return (
 				<video controls muted preload="none" poster={this.image} src={this.video} height="225" width="400" class="discord-embed-video">
-					<img src={this.image} alt="Discord embed media" class="discord-embed-image" />
+					<Image src={this.image} alt="Discord embed media" className="discord-embed-image" />
 				</video>
 			);
 		} else if (this.image) {
-			return <img src={this.image} alt="Discord embed media" class="discord-embed-image" />;
+			return <Image src={this.image} alt="Discord embed media" className="discord-embed-image" />;
 		}
 
 		return null;
@@ -178,10 +179,10 @@ export class DiscordEmbed implements ComponentInterface {
 		return words.map((word: string, idx: number) => {
 			const emoji = getGlobalEmojiUrl(word) ?? ({} as Emoji);
 			let el = '';
-			if (emoji.name) {
+			if (emoji.name && emoji.url) {
 				el = (
 					<span class="discord-embed-custom-emoji">
-						<img src={emoji.url} alt={emoji.name} class="discord-embed-custom-emoji-image" />
+						<Image src={emoji.url} alt={emoji.name} className="discord-embed-custom-emoji-image" />
 						<span>&nbsp;</span>
 					</span>
 				);

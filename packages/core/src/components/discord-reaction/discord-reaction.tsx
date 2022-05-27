@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, h, Prop } from '@stencil/core';
 import clsx from 'clsx';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-reaction',
@@ -53,7 +54,7 @@ export class DiscordReaction implements ComponentInterface {
 		return (
 			<div class={clsx('discord-reaction', { 'discord-reaction-reacted': this.reacted })} onClick={this.handleReactionClick.bind(this)}>
 				<div class="discord-reaction-inner">
-					<img src={this.emoji} alt={this.name} draggable={false} />
+					<Image src={this.emoji} alt={this.name} draggable={false} />
 					<span class="discord-reaction-count">{this.count}</span>
 				</div>
 			</div>

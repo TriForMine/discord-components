@@ -21,7 +21,7 @@
 		"build": "yarn clean && tsc && gen-esm-wrapper dist/index.js dist/index.mjs && replace-in-file --configFile=scripts/replaceDefaultMod.cjs"
 	},
 	"dependencies": {
-		"@skyra/discord-components-core": "^3.4.0",
+		"@skyra/discord-components-core": "git+https://github.com/TriForMine/discord-components",
 		"tslib": "^2.4.0"
 	},
 	"peerDependencies": {
@@ -43,7 +43,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/skyra-project/discord-components.git"
+		"url": "git+https://github.com/triformine/discord-components.git"
 	},
 	"bugs": {
 		"url": "https://github.com/skyra-project/discord-components/issues"

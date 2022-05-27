@@ -5,6 +5,7 @@ import { avatars, Profile, profiles } from '../../options';
 import { DiscordTimestamp, handleTimestamp } from '../../util';
 import { AuthorInfo } from '../author-info/author-info';
 import Ephemeral from '../svgs/ephemeral';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-message',
@@ -168,7 +169,7 @@ export class DiscordMessage implements ComponentInterface {
 				<div class="discord-message-inner">
 					{parent.compactMode && <span class="discord-message-timestamp">{this.timestamp}</span>}
 					<div class="discord-author-avatar">
-						<img src={profile.avatar} alt={profile.author} />
+						<Image src={profile.avatar!} alt={profile.author} />
 					</div>
 					<div class="discord-message-content">
 						{!parent.compactMode && (

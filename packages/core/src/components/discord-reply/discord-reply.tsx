@@ -5,6 +5,7 @@ import AttachmentReply from '../svgs/attachment-reply';
 import CommandReply from '../svgs/command-reply';
 import ReplyIcon from '../svgs/reply-icon';
 import VerifiedTick from '../svgs/verified-tick';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-reply',
@@ -122,7 +123,7 @@ export class DiscordReply implements ComponentInterface {
 						<ReplyIcon />
 					</div>
 				) : (
-					<img class="discord-replied-message-avatar" src={profile.avatar} alt={profile.author} />
+					<Image className="discord-replied-message-avatar" src={profile.avatar!} alt={profile.author} />
 				)}
 				{
 					<Fragment>

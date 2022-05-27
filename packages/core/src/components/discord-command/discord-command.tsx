@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
 import { avatars, Profile, profiles } from '../../options';
 import CommandIcon from '../svgs/command-icon';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-command',
@@ -66,7 +67,7 @@ export class DiscordCommand implements ComponentInterface {
 						<CommandIcon />
 					</div>
 				) : (
-					<img class="discord-replied-message-avatar" src={profile.avatar} alt={profile.author} />
+					<Image className="discord-replied-message-avatar" src={profile.avatar!} alt={profile.author} />
 				)}
 				<span class="discord-replied-message-username" style={{ color: profile.roleColor ?? '' }}>
 					{profile.author}

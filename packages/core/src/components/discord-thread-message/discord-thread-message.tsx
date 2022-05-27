@@ -2,6 +2,7 @@ import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/
 import Fragment from '../../Fragment';
 import { avatars, Profile, profiles } from '../../options';
 import VerifiedTick from '../svgs/verified-tick';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-thread-message',
@@ -81,7 +82,7 @@ export class DiscordThreadMessage implements ComponentInterface {
 
 		return (
 			<Host class="discord-thread-message">
-				<img src={profile.avatar} class="discord-thread-message-avatar" alt={profile.author} />
+				<Image src={profile.avatar!} className="discord-thread-message-avatar" alt={profile.author} />
 				<Fragment>
 					{profile.bot && !profile.server && (
 						<span class="discord-application-tag">

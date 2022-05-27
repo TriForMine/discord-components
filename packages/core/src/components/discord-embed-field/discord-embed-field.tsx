@@ -2,6 +2,7 @@ import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@s
 import clsx from 'clsx';
 import type { Emoji } from '../../options';
 import { getGlobalEmojiUrl } from '../../util';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-embed-field',
@@ -81,10 +82,10 @@ export class DiscordEmbedField implements ComponentInterface {
 		return words.map((word: string, idx: number) => {
 			const emoji = getGlobalEmojiUrl(word) ?? ({} as Emoji);
 			let el = '';
-			if (emoji.name) {
+			if (emoji.name && emoji.url) {
 				el = (
 					<span class="discord-embed-custom-emoji">
-						<img src={emoji.url} alt={emoji.name} class="discord-embed-custom-emoji-image" />
+						<Image src={emoji.url} alt={emoji.name} className="discord-embed-custom-emoji-image" />
 						<span>&nbsp;</span>
 					</span>
 				);

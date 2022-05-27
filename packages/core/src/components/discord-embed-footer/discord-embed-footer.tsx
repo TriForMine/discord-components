@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@stencil/core';
 import Fragment from '../../Fragment';
 import { DiscordTimestamp, handleTimestamp } from '../../util';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-embed-footer',
@@ -44,7 +45,7 @@ export class DiscordEmbedFooter implements ComponentInterface {
 
 		return (
 			<Host class="discord-embed-footer">
-				{this.footerImage ? <img src={this.footerImage} alt="" class="discord-footer-image" /> : ''}
+				{this.footerImage ? <Image src={this.footerImage} alt="" className="discord-footer-image" /> : ''}
 				<Fragment>
 					<slot></slot>
 					{this.timestamp ? <span class="discord-footer-separator">&bull;</span> : ''}

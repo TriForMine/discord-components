@@ -3,6 +3,7 @@ import { defaultDiscordAvatars } from '../../options';
 import GuildBadge from '../svgs/guild-badge';
 import PartnerBadgeOverlay from '../svgs/partner-badge-overlay';
 import VerifiedBadgeOverlay from '../svgs/verified-badge-overlay';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-invite',
@@ -81,7 +82,7 @@ export class DiscordInvite implements ComponentInterface {
 			<div class="discord-invite">
 				<div class="discord-invite-header">{this.inviteTitle}</div>
 				<div class="discord-invite-root">
-					<img class="discord-invite-icon" src={this.icon} alt={this.name} />
+					<Image className="discord-invite-icon" src={this.icon!} alt={this.name} />
 					<div class="discord-invite-info">
 						<div class="discord-invite-title">
 							{((this.verified && !this.partnered) || (!this.verified && this.partnered)) && (

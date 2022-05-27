@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, Watch } from '@stencil/core';
 import Fragment from '../../Fragment';
 import LaunchIcon from '../svgs/launch-icon';
+import Image from 'next/image';
 
 @Component({
 	tag: 'discord-button',
@@ -62,7 +63,7 @@ export class DiscordButton implements ComponentInterface {
 
 		const content = (
 			<Fragment>
-				{this.emoji && <img src={this.emoji} alt={this.emojiName} draggable={false} class="discord-button-emoji" />}
+				{this.emoji && <Image src={this.emoji} alt={this.emojiName} draggable={false} className="discord-button-emoji" />}
 				<span>
 					<slot />
 				</span>
